@@ -1,0 +1,45 @@
+# Ignore build results
+[Bb]in/
+[Oo]bj/
+
+# Ignore packages
+packages/
+*.nupkg
+
+# Ignore test results
+[Tt]est[Rr]esults/
+
+# Ignore temporary files
+*.[Tt]mp
+*.[Tt]emp
+*.bak
+*~
+*.log
+
+# Ignore Visual Studio files
+*.suo
+*.user
+*.aps
+*.vspscc
+*.vsscc
+*.vssscc
+*.vsw
+*.code-workspace
+
+# Ignore ReSharper files
+*.dotSettings
+*.DotSettings.user
+
+# Ignore NuGet files
+.nuget/
+NuGet.config
+nuget.g.props
+nuget.g.targets
+
+# Ignore Rider files
+.idea/
+
+# Ignore other common files
+*.pid
+*.lock
+*.slog
