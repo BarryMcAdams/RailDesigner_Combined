@@ -1,0 +1,54 @@
+{
+  "mcpServers": {
+    "Perplexity": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-perplexity-ask"],
+      "env": {
+        "PERPLEXITY_API_KEY": "${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}"
+      }
+    },
+    "SequentialThinking": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@mcp/sequentialthinking@latest"]
+    },
+    "Context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  },
+  "dotnet.preferCSharpExtension": true,
+  "github.copilot.chat.codeGeneration.instructions": [
+    { "text": "Always add `use context7` to prompts if Context7 is available." }
+  ],
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "perplexity-key",
+      "description": "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",
+      "password": true
+    }
+  ],
+  "servers": {
+    "Perplexity": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-perplexity-ask"],
+      "env": {
+        "PERPLEXITY_API_KEY": "${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}"
+      }
+    },
+    "SequentialThinking": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@mcp/sequentialthinking@latest"]
+    },
+    "Context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}

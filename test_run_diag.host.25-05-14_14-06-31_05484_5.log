@@ -1,0 +1,673 @@
+TpTrace Verbose: 0 : 12196, 1, 2025/05/14, 14:06:31.187, 5967060003, testhost.net48.exe, Version: 17.13.0-release-25073-05 Current process architecture: X64
+TpTrace Verbose: 0 : 12196, 1, 2025/05/14, 14:06:31.187, 5967072138, testhost.net48.exe, Runtime location: C:\Windows\Microsoft.NET\Framework64\v4.0.30319
+TpTrace Information: 0 : 12196, 1, 2025/05/14, 14:06:31.187, 5967079975, testhost.net48.exe, DefaultEngineInvoker.Invoke: Testhost process started with args :[--port, 50830],[--endpoint, 127.0.0.1:050830],[--role, client],[--parentprocessid, 26176],[--diag, C:\Users\barrya\source\repos\RailDesigner1\test_run_diag.host.25-05-14_14-06-31_05484_5.log],[--tracelevel, 4],[--telemetryoptedin, false]
+TpTrace Information: 0 : 12196, 1, 2025/05/14, 14:06:31.187, 5967089884, testhost.net48.exe, DefaultEngineInvoker: Using Application Configuration: '<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <startup useLegacyV2RuntimeActivationPolicy="true">
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0" />
+  </startup>
+  <runtime>
+    <legacyUnhandledExceptionPolicy enabled="1" />
+    <legacyCorruptedStateExceptionsPolicy enabled="true" />
+    <!-- To get stacktrace information for portable and embedded pdbs when net472 installed on machine.
+          More details https://github.com/dotnet/designs/blob/master/accepted/diagnostics/debugging-with-symbols-and-sources.md#stack-traces -->
+    <AppContextSwitchOverrides value="Switch.System.Diagnostics.IgnorePortablePDBsInStackTraces=false" />
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <probing privatePath="Extensions" />
+      <!-- Test adapters compiled against version 11-14, need to be redirected to version 15. -->
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.VisualStudio.TestPlatform.ObjectModel" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="11.0.0.0-14.0.0.0" newVersion="15.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.VisualStudio.TestWindow.Interfaces" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="11.0.0.0-16.0.0.0" newVersion="17.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.VisualStudio.QualityTools.UnitTestFramework" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="10.1.0.0" newVersion="10.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.VisualStudio.QualityTools.Resource" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="10.0.0.0-16.0.0.0" newVersion="17.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.VisualStudio.QualityTools.ControllerObject" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="10.0.0.0-16.0.0.0" newVersion="17.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.VisualStudio.QualityTools.ExecutionCommon" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="10.0.0.0-16.0.0.0" newVersion="17.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.VisualStudio.QualityTools.Common" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="10.0.0.0-16.0.0.0" newVersion="17.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="10.0.0.0-16.0.0.0" newVersion="17.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <!-- Microsoft.Extensions.DependencyModel depends on version 9.0.0, and newer versions of that nuget don't support all the frameworks we need anymore. -->
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="9.0.0.0-13.0.0.0" newVersion="13.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Extensions.FileSystemGlobbing" publicKeyToken="adb9793829ddae60" culture="neutral" />
+        <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <system.diagnostics>
+    <switches>
+      <add name="TpTraceLevel" value="0" />
+    </switches>
+  </system.diagnostics>
+  <appSettings>
+    <!--<add key="ExecutionThreadApartmentState" value ="MTA"/>-->
+    <!--<add key="TraceLogMaxFileSizeInKb" value ="10240"/>-->
+    <!-- MsTest Adapter Specific AppSettings -->
+    <!-- This flag is added to support test execution for net35 tests through TMI adapter. -->
+    <add key="TestProjectRetargetTo35Allowed" value="true" />
+  </appSettings>
+</configuration>'
+TpTrace Information: 0 : 12196, 1, 2025/05/14, 14:06:31.187, 5967093823, testhost.net48.exe, DefaultEngineInvoker.SetParentProcessExitCallback: Monitoring parent process with id: '26176'
+TpTrace Information: 0 : 12196, 1, 2025/05/14, 14:06:31.202, 5967182953, testhost.net48.exe, DefaultEngineInvoker.GetConnectionInfo: Initialize communication on endpoint address: '127.0.0.1:050830'
+TpTrace Information: 0 : 12196, 1, 2025/05/14, 14:06:31.202, 5967228495, testhost.net48.exe, SocketClient.Start: connecting to server endpoint: 127.0.0.1:050830
+TpTrace Information: 0 : 12196, 1, 2025/05/14, 14:06:31.202, 5967242439, testhost.net48.exe, DefaultEngineInvoker.Invoke: Start Request Processing.
+TpTrace Information: 0 : 12196, 8, 2025/05/14, 14:06:31.202, 5967254639, testhost.net48.exe, SocketClient.OnServerConnected: connected to server endpoint: 127.0.0.1:050830
+TpTrace Information: 0 : 12196, 7, 2025/05/14, 14:06:31.213, 5967272562, testhost.net48.exe, DefaultEngineInvoker.StartProcessingAsync: Connected to vstest.console, Starting process requests.
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.213, 5967273855, testhost.net48.exe, MulticastDelegateUtilities.SafeInvoke: SocketClient: ServerConnected: Invoking callback 1/1 for Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestHandler., took 0 ms.
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.214, 5967274294, testhost.net48.exe, Connected to server, and starting MessageLoopAsync
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.215, 5967290993, testhost.net48.exe, TcpClientExtensions.MessageLoopAsync: Polling on remoteEndPoint: 127.0.0.1:50830 localEndPoint: 127.0.0.1:50831 after 0 ms
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.233, 5967466737, testhost.net48.exe, TcpClientExtensions.MessageLoopAsync: NotifyDataAvailable remoteEndPoint: 127.0.0.1:50830 localEndPoint: 127.0.0.1:50831
+TpTrace Information: 0 : 12196, 8, 2025/05/14, 14:06:31.236, 5967503845, testhost.net48.exe, TestRequestHandler.OnMessageReceived: received message: (ProtocolVersion) -> {"MessageType":"ProtocolVersion","Payload":7}
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.349, 5968629703, testhost.net48.exe, TestRequestHandler.SendData: sending data from testhost: {"Version":7,"MessageType":"TestSession.Message","Payload":{"MessageLevel":0,"Message":"Logging TestHost Diagnostics in file: C:\\Users\\barrya\\source\\repos\\RailDesigner1\\test_run_diag.host.25-05-14_14-06-31_05484_5.log"}}
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.349, 5968630803, testhost.net48.exe, MulticastDelegateUtilities.SafeInvoke: LengthPrefixCommunicationChannel: MessageReceived: Invoking callback 1/1 for Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestHandler., took 115 ms.
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.349, 5968631029, testhost.net48.exe, TcpClientExtensions.MessageLoopAsync: Polling on remoteEndPoint: 127.0.0.1:50830 localEndPoint: 127.0.0.1:50831 after 133 ms
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.352, 5968684902, testhost.net48.exe, TcpClientExtensions.MessageLoopAsync: NotifyDataAvailable remoteEndPoint: 127.0.0.1:50830 localEndPoint: 127.0.0.1:50831
+TpTrace Information: 0 : 12196, 8, 2025/05/14, 14:06:31.352, 5968685868, testhost.net48.exe, TestRequestHandler.OnMessageReceived: received message: (TestExecution.Initialize) -> {"Version":7,"MessageType":"TestExecution.Initialize","Payload":["C:\\Program Files\\dotnet\\sdk\\9.0.204\\Extensions\\Microsoft.Diagnostics.NETCore.Client.dll","C:\\Program Files\\dotnet\\sdk\\9.0.204\\Extensions\\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll","C:\\Program Files\\dotnet\\sdk\\9.0.204\\Extensions\\Microsoft.TestPlatform.Extensions.EventLogCollector.dll","C:\\Program Files\\dotnet\\sdk\\9.0.204\\Extensions\\Microsoft.TestPlatform.TestHostRuntimeProvider.dll","C:\\Program Files\\dotnet\\sdk\\9.0.204\\Extensions\\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll","C:\\Program Files\\dotnet\\sdk\\9.0.204\\Extensions\\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll","C:\\Users\\barrya\\source\\repos\\RailDesigner1\\bin\\Debug\\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll"]}
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.363, 5968776930, testhost.net48.exe, MulticastDelegateUtilities.SafeInvoke: LengthPrefixCommunicationChannel: MessageReceived: Invoking callback 1/1 for Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestHandler., took 9 ms.
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.363, 5968777516, testhost.net48.exe, TcpClientExtensions.MessageLoopAsync: Polling on remoteEndPoint: 127.0.0.1:50830 localEndPoint: 127.0.0.1:50831 after 14 ms
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.363, 5968777830, testhost.net48.exe, TcpClientExtensions.MessageLoopAsync: NotifyDataAvailable remoteEndPoint: 127.0.0.1:50830 localEndPoint: 127.0.0.1:50831
+TpTrace Information: 0 : 12196, 8, 2025/05/14, 14:06:31.363, 5968778470, testhost.net48.exe, TestRequestHandler.OnMessageReceived: received message: (TestExecution.StartWithSources) -> {"Version":7,"MessageType":"TestExecution.StartWithSources","Payload":{"AdapterSourceMap":{"_none_":["C:\\Users\\barrya\\source\\repos\\RailDesigner1\\bin\\Debug\\RailDesigner1.dll"]},"RunSettings":"<RunSettings>\r\n  <RunConfiguration>\r\n    <ResultsDirectory>C:\\Users\\barrya\\source\\repos\\RailDesigner1\\TestResults</ResultsDirectory>\r\n    <TargetFrameworkVersion>.NETFramework,Version=v4.8</TargetFrameworkVersion>\r\n    <DesignMode>False</DesignMode>\r\n    <CollectSourceInformation>False</CollectSourceInformation>\r\n  </RunConfiguration>\r\n  <LoggerRunSettings>\r\n    <Loggers>\r\n      <Logger friendlyName=\"console\" assemblyQualifiedName=\"Microsoft.VisualStudio.TestPlatform.CommandLine.Internal.ConsoleLogger, vstest.console, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" codeBase=\"C:\\Program Files\\dotnet\\sdk\\9.0.204\\vstest.console.dll\" enabled=\"True\">\r\n        <Configuration>\r\n          <verbosity>detailed</verbosity>\r\n        </Configuration>\r\n      </Logger>\r\n      <Logger friendlyName=\"Microsoft.TestPlatform.MSBuildLogger\" assemblyQualifiedName=\"Microsoft.VisualStudio.TestPlatform.CommandLine.Internal.MSBuildLogger, vstest.console, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" codeBase=\"C:\\Program Files\\dotnet\\sdk\\9.0.204\\vstest.console.dll\" enabled=\"True\">\r\n        <Configuration>\r\n          <Verbosity>normal</Verbosity>\r\n        </Configuration>\r\n      </Logger>\r\n    </Loggers>\r\n  </LoggerRunSettings>\r\n</RunSettings>","TestExecutionContext":{"FrequencyOfRunStatsChangeEvent":10,"RunStatsChangeEventTimeout":"00:00:01.5000000","InIsolation":false,"KeepAlive":false,"AreTestCaseLevelEventsRequired":false,"IsDebug":false,"TestCaseFilter":null,"FilterOptions":null},"Package":null}}
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.364, 5968781266, testhost.net48.exe, TestRequestHandler.OnMessageReceived: Running job 'TestExecution.Initialize'.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.373, 5968883783, testhost.net48.exe, TestExecutorService: Loading the extensions
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.373, 5968902218, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: finding test extensions in assemblies ends with: TestAdapter.dll TPluginInfo: Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.Utilities.TestExecutorPluginInformation TExtension: Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter.ITestExecutor
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.373, 5968914042, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Filtered extension paths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.373, 5968914773, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added default extension paths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.373, 5968915055, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.380, 5968945477, testhost.net48.exe, AssemblyResolver.ctor: Creating AssemblyResolver with searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Users\barrya\source\repos\RailDesigner1\bin\Debug,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.381, 5968949446, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using extension path.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.381, 5968950034, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Filtered extension paths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.381, 5968950355, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added default extension paths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.381, 5968950633, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.381, 5968950977, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using allExtensionPaths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.381, 5968957397, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.381, 5968958014, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.381, 5968958277, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.381, 5968958512, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.381, 5968958705, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.382, 5968958933, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.382, 5968959159, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Users\barrya\source\repos\RailDesigner1\bin\Debug,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.385, 5968997181, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Diagnostics.NETCore.Client: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.385, 5968997837, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Diagnostics.NETCore.Client: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.386, 5969006018, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Diagnostics.NETCore.Client: Loading assembly 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll'.
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.388, 5969022197, testhost.net48.exe, MulticastDelegateUtilities.SafeInvoke: LengthPrefixCommunicationChannel: MessageReceived: Invoking callback 1/1 for Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestHandler., took 24 ms.
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.388, 5969022658, testhost.net48.exe, TcpClientExtensions.MessageLoopAsync: Polling on remoteEndPoint: 127.0.0.1:50830 localEndPoint: 127.0.0.1:50831 after 24 ms
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.398, 5969128657, testhost.net48.exe, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.Diagnostics.NETCore.Client, from path: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.402, 5969221486, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.Diagnostics.NETCore.Client, Version=0.2.11.6601, Culture=neutral, PublicKeyToken=31bf3856ad364e35' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll'
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.446, 5969598488, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.446, 5969600108, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.446, 5969601294, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Bcl.AsyncInterfaces.dll', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.446, 5969602737, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Bcl.AsyncInterfaces.exe', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.446, 5969603110, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Searching in: 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.446, 5969603794, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.446, 5969604364, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.exe', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.446, 5969604624, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.446, 5969605131, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework\Microsoft.Bcl.AsyncInterfaces.dll', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.446, 5969605628, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework\Microsoft.Bcl.AsyncInterfaces.exe', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.446, 5969605849, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Failed to load assembly.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.447, 5969610031, testhost.net48.exe, CurrentDomainAssemblyResolve: Resolving assembly 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.447, 5969615689, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.447, 5969616148, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Resolved from cache.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.447, 5969616415, testhost.net48.exe, CurrentDomainAssemblyResolve: Resolving assembly 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.447, 5969616633, testhost.net48.exe, CurrentDomainAssemblyResolve: Failed to resolve assembly 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.448, 5969619278, testhost.net48.exe, CurrentDomainAssemblyResolve: Failed to resolve assembly 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.449, 5969633139, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.449, 5969633640, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.449, 5969634284, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\System.Threading.Tasks.Extensions.dll', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.449, 5969634762, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\System.Threading.Tasks.Extensions.exe', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.449, 5969634985, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Searching in: 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.449, 5969635486, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\System.Threading.Tasks.Extensions.dll', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.449, 5969635936, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\System.Threading.Tasks.Extensions.exe', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.449, 5969636160, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.449, 5969636651, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework\System.Threading.Tasks.Extensions.dll', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.449, 5969637157, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework\System.Threading.Tasks.Extensions.exe', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.450, 5969637343, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Failed to load assembly.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.450, 5969637604, testhost.net48.exe, CurrentDomainAssemblyResolve: Resolving assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.450, 5969642755, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.450, 5969643056, testhost.net48.exe, AssemblyResolver.OnResolve: System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: Resolved from cache.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.450, 5969643332, testhost.net48.exe, CurrentDomainAssemblyResolve: Resolving assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.450, 5969643498, testhost.net48.exe, CurrentDomainAssemblyResolve: Failed to resolve assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.450, 5969644160, testhost.net48.exe, CurrentDomainAssemblyResolve: Failed to resolve assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.452, 5969750433, testhost.net48.exe, TestPluginDiscoverer: Failed to get types from assembly 'Microsoft.Diagnostics.NETCore.Client, Version=0.2.11.6601, Culture=neutral, PublicKeyToken=31bf3856ad364e35'. Error: System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   at System.Reflection.RuntimeModule.GetTypes()
+   at System.Reflection.Assembly.GetTypes()
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginDiscoverer.GetTestExtensionsFromAssembly[TPluginInfo,TExtension](Assembly assembly, Dictionary`2 pluginInfos, String filePath) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginDiscoverer.cs:line 159
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.452, 5969753660, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' ---> System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.452, 5969754867, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' ---> System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.452, 5969755503, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.452, 5969756131, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.462, 5969769055, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.BlameDataCollector: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.462, 5969769561, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.BlameDataCollector: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.463, 5969773915, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.BlameDataCollector: Loading assembly 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.468, 5969834504, testhost.net48.exe, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.TestPlatform.Extensions.BlameDataCollector, from path: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.468, 5969835226, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.Extensions.BlameDataCollector, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll'
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.473, 5969872110, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.EventLogCollector: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.473, 5969872493, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.EventLogCollector: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.473, 5969875586, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.EventLogCollector: Loading assembly 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.475, 5969898765, testhost.net48.exe, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.TestPlatform.Extensions.EventLogCollector, from path: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.475, 5969899495, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.Extensions.EventLogCollector, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll'
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.477, 5969913680, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.TestPlatform.TestHostRuntimeProvider: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.477, 5969914109, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.TestPlatform.TestHostRuntimeProvider: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.477, 5969917225, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.TestPlatform.TestHostRuntimeProvider: Loading assembly 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.480, 5969946245, testhost.net48.exe, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.TestPlatform.TestHostRuntimeProvider, from path: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.480, 5969947031, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.TestHostRuntimeProvider, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll'
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.480, 5969965199, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.480, 5969965656, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.480, 5969969161, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger: Loading assembly 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.480, 5969992531, testhost.net48.exe, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger, from path: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.480, 5969993266, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll'
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970007004, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970007461, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970010926, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger: Loading assembly 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970034074, testhost.net48.exe, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger, from path: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970034784, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll'
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970048917, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970049343, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970049892, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970050402, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.exe', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970050627, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter: Searching in: 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970053680, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter: Loading assembly 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970087602, testhost.net48.exe, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, from path: C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.486, 5970088333, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll'
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.498, 5970122427, testhost.net48.exe, GetTestExtensionFromType: Register extension with identifier data 'executor://MSTestAdapter/v2' and type 'Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestExecutor, Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' inside file 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.500, 5970144849, testhost.net48.exe, TestPluginCache: Discovered the extensions using extension path ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.501, 5970154015, testhost.net48.exe, TestPluginCache: Discoverers are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.501, 5970154478, testhost.net48.exe, TestPluginCache: Executors are 'executor://MSTestAdapter/v2'.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.501, 5970154652, testhost.net48.exe, TestPluginCache: Executors2 are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.501, 5970154849, testhost.net48.exe, TestPluginCache: Setting providers are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.501, 5970155004, testhost.net48.exe, TestPluginCache: Loggers are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.501, 5970155161, testhost.net48.exe, TestPluginCache: TestHosts are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.501, 5970155370, testhost.net48.exe, TestPluginCache: DataCollectors are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970174349, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: finding test extensions in assemblies ends with: TestAdapter.dll TPluginInfo: Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.Utilities.TestExecutorPluginInformation2 TExtension: Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter.ITestExecutor2
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970176396, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Filtered extension paths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970176788, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added default extension paths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970177018, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970178326, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Users\barrya\source\repos\RailDesigner1\bin\Debug,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970178606, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using extension path.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970178785, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Filtered extension paths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970178986, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added default extension paths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970179276, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970179511, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using allExtensionPaths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970179928, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970180165, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970180387, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970180605, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970180793, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970181015, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970181248, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Users\barrya\source\repos\RailDesigner1\bin\Debug,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970181799, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.Diagnostics.NETCore.Client, Version=0.2.11.6601, Culture=neutral, PublicKeyToken=31bf3856ad364e35' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll'
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970190346, testhost.net48.exe, TestPluginDiscoverer: Failed to get types from assembly 'Microsoft.Diagnostics.NETCore.Client, Version=0.2.11.6601, Culture=neutral, PublicKeyToken=31bf3856ad364e35'. Error: System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   at System.Reflection.RuntimeModule.GetTypes()
+   at System.Reflection.Assembly.GetTypes()
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginDiscoverer.GetTestExtensionsFromAssembly[TPluginInfo,TExtension](Assembly assembly, Dictionary`2 pluginInfos, String filePath) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginDiscoverer.cs:line 159
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970191383, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970192058, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970192617, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970193183, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970193715, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.Extensions.BlameDataCollector, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.502, 5970198271, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.Extensions.EventLogCollector, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.506, 5970203390, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.TestHostRuntimeProvider, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.506, 5970207634, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.506, 5970212299, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.506, 5970216937, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.506, 5970221437, testhost.net48.exe, TestPluginCache: Discovered the extensions using extension path ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.506, 5970221735, testhost.net48.exe, TestPluginCache: Discoverers are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.506, 5970221944, testhost.net48.exe, TestPluginCache: Executors are 'executor://MSTestAdapter/v2'.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.506, 5970222117, testhost.net48.exe, TestPluginCache: Executors2 are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.506, 5970222265, testhost.net48.exe, TestPluginCache: Setting providers are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.506, 5970222446, testhost.net48.exe, TestPluginCache: Loggers are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.508, 5970222688, testhost.net48.exe, TestPluginCache: TestHosts are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.508, 5970222873, testhost.net48.exe, TestPluginCache: DataCollectors are ''.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.510, 5970252170, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Resolving assembly.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.510, 5970252642, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.510, 5970253473, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.510, 5970254078, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.exe', returning.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.510, 5970254475, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Searching in: 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.510, 5970257565, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Loading assembly 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.510, 5970258037, testhost.net48.exe, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, from path: C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.512, 5970263775, testhost.net48.exe, TestPluginManager.CreateTestExtension: Attempting to load test extension: Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestExecutor
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970345933, testhost.net48.exe, TestExecutorExtensionManager: Loading executor Microsoft.VisualStudio.TestPlatform.Common.ExtensionDecorators.SerialTestRunDecorator
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970346378, testhost.net48.exe, TestExecutorService: Loaded the executors
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970352697, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: finding test extensions in assemblies ends with: TestAdapter.dll TPluginInfo: Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.Utilities.TestSettingsProviderPluginInformation TExtension: Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter.ISettingsProvider
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970353211, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Filtered extension paths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970353453, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added default extension paths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970353704, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970354960, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Users\barrya\source\repos\RailDesigner1\bin\Debug,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970355198, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using extension path.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970355417, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Filtered extension paths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970356274, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added default extension paths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970356509, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970356754, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using allExtensionPaths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970357116, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970357355, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970357578, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970357763, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970357985, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970358220, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970358411, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Users\barrya\source\repos\RailDesigner1\bin\Debug,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970359039, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.Diagnostics.NETCore.Client, Version=0.2.11.6601, Culture=neutral, PublicKeyToken=31bf3856ad364e35' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll'
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970366314, testhost.net48.exe, TestPluginDiscoverer: Failed to get types from assembly 'Microsoft.Diagnostics.NETCore.Client, Version=0.2.11.6601, Culture=neutral, PublicKeyToken=31bf3856ad364e35'. Error: System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   at System.Reflection.RuntimeModule.GetTypes()
+   at System.Reflection.Assembly.GetTypes()
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginDiscoverer.GetTestExtensionsFromAssembly[TPluginInfo,TExtension](Assembly assembly, Dictionary`2 pluginInfos, String filePath) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginDiscoverer.cs:line 159
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970367322, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970367944, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970368577, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970369153, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970369696, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.Extensions.BlameDataCollector, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970374292, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.Extensions.EventLogCollector, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970378620, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.TestHostRuntimeProvider, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970383124, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970387708, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970392245, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970397076, testhost.net48.exe, TestPluginCache: Discovered the extensions using extension path ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970397421, testhost.net48.exe, TestPluginCache: Discoverers are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970397602, testhost.net48.exe, TestPluginCache: Executors are 'executor://MSTestAdapter/v2'.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970397801, testhost.net48.exe, TestPluginCache: Executors2 are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970397977, testhost.net48.exe, TestPluginCache: Setting providers are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970398168, testhost.net48.exe, TestPluginCache: Loggers are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970398323, testhost.net48.exe, TestPluginCache: TestHosts are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970398476, testhost.net48.exe, TestPluginCache: DataCollectors are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970405124, testhost.net48.exe, TestExecutorService: Loaded the settings providers
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970405501, testhost.net48.exe, TestExecutorService: Loaded the extensions
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.513, 5970409361, testhost.net48.exe, TestRequestHandler.OnMessageReceived: Running job 'TestExecution.StartWithSources'.
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.577, 5970915109, testhost.net48.exe, TestDiscoveryManager: Discovering tests from sources C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\RailDesigner1.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.579, 5970933960, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: finding test extensions in assemblies ends with: TestAdapter.dll TPluginInfo: Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.Utilities.TestDiscovererPluginInformation TExtension: Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter.ITestDiscoverer
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.579, 5970934595, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Filtered extension paths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.579, 5970934831, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added default extension paths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.579, 5970935050, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.579, 5970936435, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Users\barrya\source\repos\RailDesigner1\bin\Debug,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.579, 5970936715, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using extension path.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.579, 5970937295, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Filtered extension paths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.579, 5970937647, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added default extension paths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.579, 5970937875, testhost.net48.exe, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.579, 5970938102, testhost.net48.exe, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using allExtensionPaths: C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll
+C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll
+C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.579, 5970938575, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.580, 5970939053, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.580, 5970939526, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.580, 5970941063, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.580, 5970941367, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.580, 5970941560, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\9.0.204\Extensions,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.580, 5970941815, testhost.net48.exe, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Users\barrya\source\repos\RailDesigner1\bin\Debug,C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.580, 5970942560, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.Diagnostics.NETCore.Client, Version=0.2.11.6601, Culture=neutral, PublicKeyToken=31bf3856ad364e35' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.Diagnostics.NETCore.Client.dll'
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.581, 5970950703, testhost.net48.exe, TestPluginDiscoverer: Failed to get types from assembly 'Microsoft.Diagnostics.NETCore.Client, Version=0.2.11.6601, Culture=neutral, PublicKeyToken=31bf3856ad364e35'. Error: System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types. Retrieve the LoaderExceptions property for more information.
+   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   at System.Reflection.RuntimeModule.GetTypes()
+   at System.Reflection.Assembly.GetTypes()
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginDiscoverer.GetTestExtensionsFromAssembly[TPluginInfo,TExtension](Assembly assembly, Dictionary`2 pluginInfos, String filePath) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginDiscoverer.cs:line 159
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.581, 5970951749, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.581, 5970952382, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.581, 5970952965, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Warning: 0 : 12196, 3, 2025/05/14, 14:06:31.581, 5970953566, testhost.net48.exe, LoaderExceptions: System.IO.FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionFramework.TestPluginCache.CurrentDomainAssemblyResolve(Object sender, AssemblyResolveEventArgs args) in /_/src/Microsoft.TestPlatform.Common/ExtensionFramework/TestPluginCache.cs:line 514
+   at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.581, 5970954129, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.Extensions.BlameDataCollector, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.581, 5970959395, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.Extensions.EventLogCollector, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.582, 5970964001, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.TestPlatform.TestHostRuntimeProvider, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.TestPlatform.TestHostRuntimeProvider.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.582, 5970968581, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Html.TestLogger.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.583, 5970973431, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.Extensions.Trx.TestLogger.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.583, 5970978346, testhost.net48.exe, MetadataReaderExtensionsHelper: Discovering extensions inside assembly 'Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' file path 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll'
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.584, 5970995236, testhost.net48.exe, GetTestExtensionFromType: Register extension with identifier data 'Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestDiscoverer, Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and type 'Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestDiscoverer, Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' inside file 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll'
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.584, 5970995875, testhost.net48.exe, TestPluginCache: Discovered the extensions using extension path ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.584, 5970996140, testhost.net48.exe, TestPluginCache: Discoverers are 'Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestDiscoverer, Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.584, 5970996319, testhost.net48.exe, TestPluginCache: Executors are 'executor://MSTestAdapter/v2'.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.584, 5970996520, testhost.net48.exe, TestPluginCache: Executors2 are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.584, 5970996680, testhost.net48.exe, TestPluginCache: Setting providers are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.584, 5970996874, testhost.net48.exe, TestPluginCache: Loggers are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.584, 5970997030, testhost.net48.exe, TestPluginCache: TestHosts are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.584, 5970997183, testhost.net48.exe, TestPluginCache: DataCollectors are ''.
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.586, 5971040845, testhost.net48.exe, BaseRunTests.RunTestInternalWithExecutors: Running tests for executor://MSTestAdapter/v2
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.586, 5971044270, testhost.net48.exe, BaseRunTests.TryToRunInSTAThread: Using STA thread to call adapter API.
+TpTrace Information: 0 : 12196, 12, 2025/05/14, 14:06:31.597, 5971115392, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Resolving assembly.
+TpTrace Information: 0 : 12196, 12, 2025/05/14, 14:06:31.597, 5971116116, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions'.
+TpTrace Information: 0 : 12196, 12, 2025/05/14, 14:06:31.597, 5971116786, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.TestFramework.dll', returning.
+TpTrace Information: 0 : 12196, 12, 2025/05/14, 14:06:31.597, 5971117321, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\Extensions\Microsoft.VisualStudio.TestPlatform.TestFramework.exe', returning.
+TpTrace Information: 0 : 12196, 12, 2025/05/14, 14:06:31.597, 5971117602, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Searching in: 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug'.
+TpTrace Information: 0 : 12196, 12, 2025/05/14, 14:06:31.597, 5971118115, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Assembly path does not exist: 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll', returning.
+TpTrace Information: 0 : 12196, 12, 2025/05/14, 14:06:31.597, 5971118582, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Assembly path does not exist: 'C:\Users\barrya\source\repos\RailDesigner1\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.exe', returning.
+TpTrace Information: 0 : 12196, 12, 2025/05/14, 14:06:31.597, 5971118908, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Searching in: 'C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework'.
+TpTrace Information: 0 : 12196, 12, 2025/05/14, 14:06:31.597, 5971119453, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework\Microsoft.VisualStudio.TestPlatform.TestFramework.dll', returning.
+TpTrace Information: 0 : 12196, 12, 2025/05/14, 14:06:31.597, 5971119954, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Assembly path does not exist: 'C:\Program Files\dotnet\sdk\9.0.204\TestHostNetFramework\Microsoft.VisualStudio.TestPlatform.TestFramework.exe', returning.
+TpTrace Information: 0 : 12196, 12, 2025/05/14, 14:06:31.597, 5971120178, testhost.net48.exe, AssemblyResolver.OnResolve: Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: Failed to load assembly.
+TpTrace Error: 0 : 12196, 3, 2025/05/14, 14:06:31.601, 5971163108, testhost.net48.exe, BaseRunTests.RunTestInternalWithExecutors: An exception occurred while invoking executor executor://mstestadapter/v2. System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+File name: 'Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestExecutor.RunTests(IEnumerable`1 sources, IRunContext runContext, IFrameworkHandle frameworkHandle)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionDecorators.SerialTestRunDecorator.RunTests(IEnumerable`1 sources, IRunContext runContext, IFrameworkHandle frameworkHandle) in /_/src/Microsoft.TestPlatform.Common/ExtensionDecorators/SerialTestRunDecorator.cs:line 59
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.RunTestsWithSources.InvokeExecutor(LazyExtension`2 executor, Tuple`2 executorUriExtensionTuple, RunContext runContext, IFrameworkHandle frameworkHandle) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/RunTestsWithSources.cs:line 115
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.<>c__DisplayClass46_0.<RunTestInternalWithExecutors>b__0() in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 464
+   at Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformThread.<>c__DisplayClass0_0.<Run>b__0() in /_/src/Microsoft.TestPlatform.PlatformAbstractions/net462/System/PlatformThread.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformThread.Run(Action action, PlatformApartmentState apartmentState, Boolean waitForCompletion) in /_/src/Microsoft.TestPlatform.PlatformAbstractions/net462/System/PlatformThread.cs:line 47
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.TryToRunInStaThread(Action action, Boolean waitForCompletion) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 680
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.RunTestInternalWithExecutors(IEnumerable`1 executorUriExtensionMap, Int64 totalTests) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 464
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+.
+TpTrace Error: 0 : 12196, 3, 2025/05/14, 14:06:31.601, 5971164950, testhost.net48.exe, An exception occurred while invoking executor 'executor://mstestadapter/v2': Could not load file or assembly 'Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+Stack trace:
+   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestExecutor.RunTests(IEnumerable`1 sources, IRunContext runContext, IFrameworkHandle frameworkHandle)
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionDecorators.SerialTestRunDecorator.RunTests(IEnumerable`1 sources, IRunContext runContext, IFrameworkHandle frameworkHandle) in /_/src/Microsoft.TestPlatform.Common/ExtensionDecorators/SerialTestRunDecorator.cs:line 59
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.RunTestsWithSources.InvokeExecutor(LazyExtension`2 executor, Tuple`2 executorUriExtensionTuple, RunContext runContext, IFrameworkHandle frameworkHandle) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/RunTestsWithSources.cs:line 115
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.<>c__DisplayClass46_0.<RunTestInternalWithExecutors>b__0() in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 464
+   at Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformThread.<>c__DisplayClass0_0.<Run>b__0() in /_/src/Microsoft.TestPlatform.PlatformAbstractions/net462/System/PlatformThread.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformThread.Run(Action action, PlatformApartmentState apartmentState, Boolean waitForCompletion) in /_/src/Microsoft.TestPlatform.PlatformAbstractions/net462/System/PlatformThread.cs:line 47
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.TryToRunInStaThread(Action action, Boolean waitForCompletion) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 680
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.RunTestInternalWithExecutors(IEnumerable`1 executorUriExtensionMap, Int64 totalTests) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 464
+
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.601, 5971165675, testhost.net48.exe, TestRequestHandler.SendData: sending data from testhost: {"Version":7,"MessageType":"TestSession.Message","Payload":{"MessageLevel":2,"Message":"An exception occurred while invoking executor 'executor://mstestadapter/v2': Could not load file or assembly 'Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.\r\nStack trace:\r\n   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestExecutor.RunTests(IEnumerable`1 sources, IRunContext runContext, IFrameworkHandle frameworkHandle)\r\n   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionDecorators.SerialTestRunDecorator.RunTests(IEnumerable`1 sources, IRunContext runContext, IFrameworkHandle frameworkHandle) in /_/src/Microsoft.TestPlatform.Common/ExtensionDecorators/SerialTestRunDecorator.cs:line 59\r\n   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.RunTestsWithSources.InvokeExecutor(LazyExtension`2 executor, Tuple`2 executorUriExtensionTuple, RunContext runContext, IFrameworkHandle frameworkHandle) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/RunTestsWithSources.cs:line 115\r\n   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.<>c__DisplayClass46_0.<RunTestInternalWithExecutors>b__0() in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 464\r\n   at Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformThread.<>c__DisplayClass0_0.<Run>b__0() in /_/src/Microsoft.TestPlatform.PlatformAbstractions/net462/System/PlatformThread.cs:line 29\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformThread.Run(Action action, PlatformApartmentState apartmentState, Boolean waitForCompletion) in /_/src/Microsoft.TestPlatform.PlatformAbstractions/net462/System/PlatformThread.cs:line 47\r\n   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.TryToRunInStaThread(Action action, Boolean waitForCompletion) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 680\r\n   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.RunTestInternalWithExecutors(IEnumerable`1 executorUriExtensionMap, Int64 totalTests) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 464\r\n"}}
+TpTrace Information: 0 : 12196, 3, 2025/05/14, 14:06:31.606, 5971210294, testhost.net48.exe, Sending test run complete
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.623, 5971403389, testhost.net48.exe, TestRequestHandler.SendData: sending data from testhost: {"Version":7,"MessageType":"TestExecution.Completed","Payload":{"TestRunCompleteArgs":{"TestRunStatistics":{"ExecutedTests":0,"Stats":{}},"IsCanceled":false,"IsAborted":false,"Error":null,"AttachmentSets":[],"InvokedDataCollectors":[],"ElapsedTimeInRunningTests":"00:00:00.0161393","Metrics":{},"DiscoveredExtensions":{"TestDiscoverers":["Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestDiscoverer, Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"],"TestExecutors":["executor://MSTestAdapter/v2"],"TestExecutors2":[],"TestSettingsProviders":[]}},"LastRunTests":{"NewTestResults":[],"TestRunStatistics":{"ExecutedTests":0,"Stats":{}},"ActiveTests":[]},"RunAttachments":[],"ExecutorUris":[]}}
+TpTrace Verbose: 0 : 12196, 3, 2025/05/14, 14:06:31.623, 5971405833, testhost.net48.exe, BaseRunTests.RunTests: Run is complete.
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.623, 5971409384, testhost.net48.exe, TcpClientExtensions.MessageLoopAsync: NotifyDataAvailable remoteEndPoint: 127.0.0.1:50830 localEndPoint: 127.0.0.1:50831
+TpTrace Information: 0 : 12196, 8, 2025/05/14, 14:06:31.623, 5971410015, testhost.net48.exe, TestRequestHandler.OnMessageReceived: received message: (TestSession.Terminate) -> {"MessageType":"TestSession.Terminate","Payload":null}
+TpTrace Information: 0 : 12196, 8, 2025/05/14, 14:06:31.623, 5971410222, testhost.net48.exe, Session End message received from server. Closing the connection.
+TpTrace Information: 0 : 12196, 8, 2025/05/14, 14:06:31.623, 5971413391, testhost.net48.exe, SocketClient.Stop: Stop communication from server endpoint: 127.0.0.1:050830
+TpTrace Information: 0 : 12196, 8, 2025/05/14, 14:06:31.623, 5971413707, testhost.net48.exe, SocketClient: Stop: Cancellation requested. Stopping message loop.
+TpTrace Information: 0 : 12196, 1, 2025/05/14, 14:06:31.623, 5971414581, testhost.net48.exe, SocketClient.Stop: Stop communication from server endpoint: 127.0.0.1:050830
+TpTrace Information: 0 : 12196, 1, 2025/05/14, 14:06:31.623, 5971415034, testhost.net48.exe, SocketClient: Stop: Cancellation requested. Stopping message loop.
+TpTrace Verbose: 0 : 12196, 1, 2025/05/14, 14:06:31.623, 5971415257, testhost.net48.exe, LengthPrefixCommunicationChannel.Dispose: Dispose reader and writer.
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.623, 5971414756, testhost.net48.exe, LengthPrefixCommunicationChannel.Dispose: Dispose reader and writer.
+TpTrace Information: 0 : 12196, 8, 2025/05/14, 14:06:31.623, 5971415978, testhost.net48.exe, Closing the connection !
+TpTrace Verbose: 0 : 12196, 8, 2025/05/14, 14:06:31.623, 5971416176, testhost.net48.exe, MulticastDelegateUtilities.SafeInvoke: LengthPrefixCommunicationChannel: MessageReceived: Invoking callback 1/1 for Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestHandler., took 0 ms.
+TpTrace Information: 0 : 12196, 1, 2025/05/14, 14:06:31.623, 5971415774, testhost.net48.exe, Testhost process exiting.
+TpTrace Information: 0 : 12196, 8, 2025/05/14, 14:06:31.623, 5971418426, testhost.net48.exe, SocketClient.PrivateStop: Stop communication from server endpoint: 127.0.0.1:050830, error:

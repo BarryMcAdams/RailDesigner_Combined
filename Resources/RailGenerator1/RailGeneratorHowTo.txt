@@ -1,0 +1,44 @@
+Based on the PRD, there are three main commands, designed to be used in a specific sequence corresponding to the project phases:
+
+RAIL_DEFINE_COMPONENT (Phase 1: Component Definition)
+RAIL_GENERATE (Phase 2: Railing Generation)
+RAIL_EXPORT_DATA (Phase 4: Data Export)
+Here is a walk-through of how you would typically use these commands and what to expect from each:
+
+Step 1: Define Railing Components
+
+Command: RAIL_DEFINE_COMPONENT
+When to use: This is the first command you'll use. Before you can generate a railing, you need to define the individual parts (like posts, rails, pickets, etc.) that will make up the railing. You will use existing 2D geometry in your AutoCAD drawing to represent these components.
+What to expect:
+The command will prompt you to select a component type from a list (e.g., TopCap, BottomRail, Post, Picket).
+You will then be asked to select the 2D entities in your drawing that represent the geometry of that component.
+You'll specify a base point for the component.
+A dialog box will appear where you can enter attributes for the component, such as PARTNAME, DESCRIPTION, MATERIAL, etc.
+The script will create an AutoCAD Block Definition for this component, embedding the geometry and attributes you provided.
+It will also manage layers, placing the component geometry on a layer named L-RAIL-<COMPONENTTYPE>.
+You will likely be asked if you want to define another component, allowing you to define all necessary parts before moving on.
+Step 2: Generate the Railing
+
+Command: RAIL_GENERATE
+When to use: Use this command after you have defined all the necessary railing components using RAIL_DEFINE_COMPONENT. This command takes the defined components and places them along a path to create the full railing assembly.
+What to expect:
+A user interface (likely a WinForms dialog) will appear, allowing you to select which of your defined component blocks to use for this specific railing instance (e.g., which post block, which top rail block, etc.).
+You will also input parameters like the overall railing height, spacing rules for posts and pickets, and mounting type.
+The command will then prompt you to select a single 2D Polyline in your drawing that will serve as the path for the railing.
+The script will calculate the positions for posts and pickets along the selected polyline based on your spacing rules.
+It will create a temporary Block Definition (RailingAssembly_<Timestamp>) containing the entire railing assembly.
+Inside this assembly block, it will insert instances of your defined component blocks (posts, pickets, mounting) at the calculated positions, oriented correctly along the path.
+For horizontal components (rails), it will generate 2D polyline geometry representing their size and place them along the path segments.
+Attribute data from your component definitions will be transferred to the inserted blocks and attached as XData to the horizontal polylines.
+Finally, the complete RailingAssembly block will be inserted into your drawing's Model Space.
+Step 3: Export Railing Data
+
+Command: RAIL_EXPORT_DATA
+When to use: Use this command after you have generated one or more railing assemblies using RAIL_GENERATE. This command extracts the embedded data from a generated railing block.
+What to expect:
+The command will likely prompt you to select a generated RailingAssembly block in your drawing.
+It will then iterate through the entities within that block (the component block insertions and the horizontal polylines).
+It will extract the attribute data from the block insertions and the XData from the polylines.
+This data will be compiled into rows, with columns for PARTNAME, DESCRIPTION, INSTALLED_LENGTH, INSTALLED_HEIGHT, and other attributes you defined.
+The compiled data will be saved to a CSV file on your desktop, typically named something like RailingBOM_<yyyyMMdd_HHmmss>.csv.
+In summary, the intended workflow is to first define your building blocks (RAIL_DEFINE_COMPONENT), then use those blocks to construct the full railing geometry along a path (RAIL_GENERATE), and finally, extract the relevant data from the generated railing (RAIL_EXPORT_DATA).
