@@ -1,169 +1,268 @@
-// ComponentDefiner.cs
+using System.Collections.Generic;
+using System.Windows.Forms;
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
-using RailDesigner1.Utils; // For ErrorLogger
-using RailCreator; // Correct namespace based on generator files
-using Autodesk.AutoCAD.Geometry; // For geometry types
-using System.Collections.Generic; // Required for List<Point3d>
+using Autodesk.AutoCAD.Geometry;
+using Autodesk.AutoCAD.Runtime;
+using System; // Added for Exception
 
-namespace RailDesigner1
+public class ComponentDefiner
 {
-    public class ComponentDefiner
+    public ObjectId DefineComponent(string componentType, out Dictionary<string, string> outAttributes)
     {
-        private Database _database;
-        private Editor _editor;
-
-        public ComponentDefiner(Database db, Editor ed)
+        outAttributes = null;
+        Document doc = Application.DocumentManager.MdiActiveDocument;
+        if (doc == null)
         {
-            _database = db;
-            _editor = ed;
-            _editor.WriteMessage("\nComponentDefiner initialized.\n");
-            ErrorLogger.LogMessage("ComponentDefiner initialized.");
+            System.Diagnostics.Debug.WriteLine("DefineComponent called without an active document.");
+            // Consider logging to AutoCAD editor if available, though Application.DocumentManager might be null too
+            return ObjectId.Null;
         }
+        Database db = doc.Database;
+        Editor ed = doc.Editor;
 
-        public void DefineComponentLoop()
+        try
         {
-            bool continueLoop = true;
-            while (continueLoop)
+            // Check if there is an active document.
+            // This is crucial because we might need to interact with AutoCAD's editor.
+            // Entity Selection
+            ObjectIdCollection selectedObjectIds = null;
+            PromptSelectionResult selectionResult;
+            do
             {
-                // Prompt for component type
-                PromptResult prType = _editor.GetString("\nEnter component type (Post/Picket, or 'done' to exit): ");
-                if (prType.Status != PromptStatus.OK) break; // Exit if canceled
-                string componentType = prType.StringResult.Trim().ToLower();
+                PromptSelectionOptions pso = new PromptSelectionOptions();
+                pso.MessageForAdding = "\nSelect 2D entities for the component geometry: ";
+                pso.SingleOnly = false;
+                selectionResult = ed.GetSelection(pso);
 
-                if (componentType == "done")
+                if (selectionResult.Status == PromptStatus.Cancel)
                 {
-                    continueLoop = false;
-                    continue; // Exit the loop
+                    ed.WriteMessage("\nComponent definition cancelled by user during entity selection.\n");
+                    outAttributes = new Dictionary<string, string>(); // Ensure outAttributes is not null
+                    return ObjectId.Null;
                 }
-
-                // Prompt for polyline selection BEFORE the transaction if possible,
-                // but often needed inside if reusing transaction for multiple operations.
-                PromptEntityResult prEntity = _editor.GetEntity("\nSelect a polyline for component placement: ");
-                if (prEntity.Status != PromptStatus.OK) continue; // Skip if canceled
-
-                // Store calculated post positions outside the switch if pickets might need them
-                List<Point3d> calculatedPostPositions = null;
-
-                using (Transaction tr = _database.TransactionManager.StartTransaction())
+                if (selectionResult.Status != PromptStatus.OK)
                 {
-                    // Get the BlockTableRecord for the current space (Model Space)
-                    BlockTable bt = (BlockTable)tr.GetObject(_database.BlockTableId, OpenMode.ForRead);
-                    BlockTableRecord currentSpace = (BlockTableRecord)tr.GetObject(_database.CurrentSpaceId, OpenMode.ForWrite); // Open ForWrite needed to add entities
+                    ed.WriteMessage("\nNo entities selected. Please try again or press ESC to cancel.\n");
+                }
+                else
+                {
+                    selectedObjectIds = new ObjectIdCollection(selectionResult.Value.GetObjectIds());
+                }
+            } while (selectionResult.Status != PromptStatus.OK && selectionResult.Status != PromptStatus.Cancel);
 
-                    if (tr.GetObject(prEntity.ObjectId, OpenMode.ForRead) is Polyline polyline)
+            if (selectedObjectIds == null || selectedObjectIds.Count == 0)
+            {
+                outAttributes = new Dictionary<string, string>();
+                return ObjectId.Null; // Should be handled by loop or earlier cancel
+            }
+
+            // Base Point Selection
+            PromptPointResult ppr;
+            PromptPointOptions ppo = new PromptPointOptions("\nSpecify base point for the component:");
+            ppr = ed.GetPoint(ppo);
+
+            if (ppr.Status != PromptStatus.OK)
+            {
+                ed.WriteMessage("\nComponent definition cancelled by user during base point selection.\n");
+                outAttributes = new Dictionary<string, string>();
+                return ObjectId.Null;
+            }
+            Point3d basePoint = ppr.Value;
+
+            // Attribute Collection
+            AttributeForm form = new AttributeForm(componentType);
+            DialogResult formResult = form.ShowDialog();
+
+            if (formResult != DialogResult.OK)
+            {
+                ed.WriteMessage($"\nAttribute definition for component type '{componentType}' was cancelled.\n");
+                outAttributes = form.Attributes ?? new Dictionary<string, string>(); // Use attributes if available (e.g. defaults), else new
+                return ObjectId.Null;
+            }
+            outAttributes = form.Attributes;
+
+            // Block Creation Logic
+            ObjectId newBlockId = ObjectId.Null;
+
+            using (Transaction tr = db.TransactionManager.StartTransaction())
+            {
+                try
+                {
+                    BlockTable bt = (BlockTable)tr.GetObject(db.BlockTableId, OpenMode.ForRead);
+                    string proposedBlockName = outAttributes["PARTNAME"]; // Assuming PARTNAME is always present
+                    
+                    // Handle Existing Block
+                    while (bt.Has(proposedBlockName))
                     {
-                        // Prompt for design parameters or use defaults
-                        PromptResult prRailHeight = _editor.GetString("\nEnter rail height (e.g., 36.0): ");
-                        double railHeight = 36.0;
-                        if (prRailHeight.Status == PromptStatus.OK && double.TryParse(prRailHeight.StringResult, out double height)) { railHeight = height; }
+                        PromptKeywordOptions pko = new PromptKeywordOptions($"\nBlock '{proposedBlockName}' already exists. Overwrite, Rename, or Cancel? [Overwrite/Rename/Cancel]:", "Overwrite Rename Cancel");
+                        pko.AppendKeywordsToMessage = true;
+                        PromptResult pkr = ed.GetKeywords(pko);
 
-                        PromptResult prMountingType = _editor.GetString("\nEnter mounting type (e.g., Plate): ");
-                        string mountingType = "Plate";
-                        if (prMountingType.Status == PromptStatus.OK) { mountingType = prMountingType.StringResult; }
-
-                        PromptResult prPicketType = _editor.GetString("\nEnter picket type (e.g., Vertical): ");
-                        string picketType = "Vertical";
-                        if (prPicketType.Status == PromptStatus.OK) { picketType = prPicketType.StringResult; }
-
-                        // *** ADD PROMPTS FOR OTHER NEEDED RailingDesign PROPERTIES ***
-                        // E.g., PostSize, PicketSize, TopCapHeight are used by generators
-                        PromptResult prPostSize = _editor.GetString("\nEnter Post Size (e.g., 2x2): ");
-                        string postSize = "2x2"; // Default
-                        if (prPostSize.Status == PromptStatus.OK) { postSize = prPostSize.StringResult; }
-
-                        PromptResult prPicketSize = _editor.GetString("\nEnter Picket Size (e.g., 0.5x0.5 or 0.75 round): ");
-                        string picketSize = "0.5x0.5"; // Default
-                        if (prPicketSize.Status == PromptStatus.OK) { picketSize = prPicketSize.StringResult; }
-
-                        PromptResult prTopCapHeight = _editor.GetString("\nEnter Top Cap Height (e.g., 1.5): ");
-                        double topCapHeight = 1.5; // Default
-                        if (prTopCapHeight.Status == PromptStatus.OK && double.TryParse(prTopCapHeight.StringResult, out double tcHeight)) { topCapHeight = tcHeight; }
-
-                        // FIX: Explicitly use RailCreator.RailingDesign and include ALL needed properties
-                        RailCreator.RailingDesign design = new RailCreator.RailingDesign
+                        if (pkr.Status != PromptStatus.OK) // Includes Cancel by ESC
                         {
-                            RailHeight = railHeight,
-                            MountingType = mountingType,
-                            PicketType = picketType,
-                            PostSize = postSize,       // Add this
-                            PicketSize = picketSize,   // Add this
-                            TopCapHeight = topCapHeight, // Add this
-                            // Add DecorativeWidth if PlaceDecorativePickets is ever called
-                            // DecorativeWidth = 2.0 // Example default
-                        };
+                            ed.WriteMessage("\nBlock definition cancelled.\n");
+                            tr.Abort();
+                            return ObjectId.Null;
+                        }
 
-                        switch (componentType)
+                        switch (pkr.StringResult)
                         {
-                            case "post":
-                                // FIX: Call generator, pass VALID btr and tr, STORE the result
-                                calculatedPostPositions = PostGenerator.CalculatePostPositions(polyline, design, currentSpace, tr);
-                                _editor.WriteMessage($"\nGenerated {calculatedPostPositions?.Count ?? 0} posts.");
-                                break;
-
-                            case "picket":
-                                // FIX: Pickets NEED post positions. Calculate them first if not already done.
-                                // Option 1: Assume posts were *just* calculated in a previous step (might be fragile)
-                                // Option 2: Recalculate posts silently here if needed
-                                // Option 3 (Robust): Require posts to be generated *before* pickets can be placed.
-
-                                // Let's go with Option 2 (Recalculate silently if 'calculatedPostPositions' is null):
-                                if (calculatedPostPositions == null)
+                            case "Overwrite":
+                                // Simplified overwrite: proceed to create. AutoCAD might disallow if instances exist without further handling.
+                                // For a robust solution, one would need to find and delete/update all references.
+                                // For now, we'll try to delete the existing BlockTableRecord if it has no references.
+                                ObjectId existingBlockId = bt.GetAt(proposedBlockName);
+                                if (!bt.IsWriteEnabled) tr.GetObject(db.BlockTableId, OpenMode.ForWrite); // Ensure write mode for BlockTable
+                                BlockTableRecord existingBtr = (BlockTableRecord)tr.GetObject(existingBlockId, OpenMode.ForRead);
+                                if (existingBtr.IsAnonymous || existingBtr.IsLayout || existingBtr.IsFromExternalReference || existingBtr.IsFromOverlayReference)
                                 {
-                                    _editor.WriteMessage("\nPost positions not available, calculating them now for picket placement...");
-                                    // We call CalculatePostPositions but might not *draw* them if the user only asked for pickets.
-                                    // However, the current PostGenerator *always* draws them. You might want separate methods
-                                    // for 'calculate positions' vs 'calculate and draw posts'.
-                                    // For now, we'll call the existing one which draws them too.
-                                    calculatedPostPositions = PostGenerator.CalculatePostPositions(polyline, design, currentSpace, tr);
-                                    if (calculatedPostPositions == null || calculatedPostPositions.Count < 2)
-                                    {
-                                        _editor.WriteMessage("\nError: Could not determine valid post positions for picket placement.");
-                                        break; // Exit case "picket"
-                                    }
+                                     ed.WriteMessage($"\nBlock '{proposedBlockName}' cannot be directly overwritten as it is a special type of block. Please choose Rename or Cancel.\n");
+                                     continue; // Re-prompt
                                 }
-
-                                if (calculatedPostPositions != null && calculatedPostPositions.Count >= 2)
+                                // Check for references (simplified check)
+                                // ObjectIdCollection refs = existingBtr.GetBlockReferenceIds(true, true);
+                                // if(refs.Count > 0) {
+                                //    ed.WriteMessage($"\nBlock '{proposedBlockName}' has instances and cannot be easily overwritten without deleting them. Choose Rename or Cancel, or manually delete instances.\n");
+                                //    continue; // Re-prompt
+                                // }
+                                // If proceeding with overwrite, delete the old BTR
+                                existingBtr.UpgradeOpen();
+                                existingBtr.Erase(); // Erase the BTR
+                                ed.WriteMessage($"\nExisting block '{proposedBlockName}' will be overwritten.\n");
+                                goto CreateBlock; // Jump to block creation
+                            case "Rename":
+                                PromptStringOptions psoRename = new PromptStringOptions("\nEnter new block name: ");
+                                psoRename.AllowSpaces = false; // Typically block names don't have spaces
+                                PromptResult prRename = ed.GetString(psoRename);
+                                if (prRename.Status != PromptStatus.OK || string.IsNullOrWhiteSpace(prRename.StringResult))
                                 {
-                                    // FIX: Call PlacePickets with the calculated positions and valid btr/tr
-                                    // Decide which picket placement method to call based on design?
-                                    if (design.PicketType.ToLower().Contains("deco"))
-                                    {
-                                        // You'd need to prompt for or set design.DecorativeWidth here too
-                                        // design.DecorativeWidth = 2.0; // Example
-                                        // PicketGenerator.PlaceDecorativePickets(polyline, design, calculatedPostPositions, currentSpace, tr);
-                                        _editor.WriteMessage("\nDecorative picket placement not fully implemented in this loop yet.");
-                                    }
-                                    else if (design.PicketSize.ToLower().Contains("glass") || design.PicketSize.ToLower().Contains("mesh") || design.PicketSize.ToLower().Contains("perf"))
-                                    {
-                                        // PicketGenerator.PlaceSpecialPickets(polyline, design, calculatedPostPositions, currentSpace, tr);
-                                         _editor.WriteMessage("\nSpecial (Glass/Mesh/Perf) picket placement not fully implemented in this loop yet.");
-                                    }
-                                    else // Includes Vertical and Horizontal based on PicketGenerator logic
-                                    {
-                                         PicketGenerator.PlacePickets(polyline, design, calculatedPostPositions, currentSpace, tr);
-                                    }
-                                    _editor.WriteMessage("\nPlaced pickets.");
+                                    ed.WriteMessage("\nRename cancelled or invalid name.\n");
+                                    continue; // Re-prompt Overwrite/Rename/Cancel
                                 }
-                                else
-                                {
-                                     _editor.WriteMessage("\nCannot place pickets: Need at least two post positions.");
-                                }
-                                break;
-
-                            default:
-                                _editor.WriteMessage("\nInvalid component type. Please enter 'Post' or 'Picket'.");
-                                break;
+                                proposedBlockName = prRename.StringResult;
+                                outAttributes["PARTNAME"] = proposedBlockName; // Update attributes
+                                ed.WriteMessage($"\nBlock will be named '{proposedBlockName}'.\n");
+                                break; // Exits switch, will re-check bt.Has(proposedBlockName) in while loop
+                            case "Cancel":
+                                ed.WriteMessage("\nBlock definition cancelled.\n");
+                                tr.Abort();
+                                return ObjectId.Null;
                         }
                     }
-                    else
+
+                CreateBlock:
+                    if (!bt.IsWriteEnabled) // Ensure BlockTable is open for write if not already
                     {
-                        _editor.WriteMessage("\nSelected entity is not a polyline.");
+                        tr.GetObject(db.BlockTableId, OpenMode.ForWrite);
                     }
-                    tr.Commit(); // Commit transaction after operations
-                } // End using Transaction
-            } // End while loop
-        } // End DefineComponentLoop
-    } // End class ComponentDefiner
-} // End namespace RailDesigner1
+
+                    using (BlockTableRecord btr = new BlockTableRecord())
+                    {
+                        btr.Name = proposedBlockName;
+                        btr.Origin = Point3d.Origin; // Entities will be transformed relative to basePoint
+
+                        Matrix3d transform = Matrix3d.Displacement(Point3d.Origin - basePoint);
+
+                        foreach (ObjectId objId in selectedObjectIds)
+                        {
+                            Entity ent = (Entity)tr.GetObject(objId, OpenMode.ForRead);
+                            Entity clone = (Entity)ent.Clone();
+                            clone.TransformBy(transform);
+                            btr.AppendEntity(clone);
+                            // No need to add clone to transaction explicitly as it's owned by btr
+                        }
+
+                        newBlockId = bt.Add(btr);
+                        tr.AddNewlyCreatedDBObject(btr, true);
+
+                        // Add AttributeDefinitions
+                        double attDefYOffset = -10.0; // Initial Y position for first attribute definition
+                        double attDefSpacing = -5.0; // Spacing between attribute definitions
+
+                        foreach (KeyValuePair<string, string> attPair in outAttributes)
+                        {
+                            using (AttributeDefinition attDef = new AttributeDefinition())
+                            {
+                                attDef.Tag = attPair.Key.ToUpperInvariant(); // Tag should be uppercase
+                                attDef.TextString = attPair.Value;
+                                attDef.Position = new Point3d(0, attDefYOffset, 0); // Stack them below origin
+                                attDef.Height = 2.5; // Example height
+                                // Set other properties like TextStyleId if needed
+                                // attDef.TextStyleId = db.Textstyle; // Current text style
+
+                                if (attPair.Key.Equals("COMPONENTTYPE", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    attDef.Invisible = true;
+                                }
+                                btr.AppendAttribute(attDef);
+                                tr.AddNewlyCreatedDBObject(attDef, true);
+                                attDefYOffset += attDefSpacing - attDef.Height; // Adjust for next position
+                            }
+                        }
+                    }
+
+                    // Entity Replacement
+                    BlockTableRecord msBtr = (BlockTableRecord)tr.GetObject(bt[BlockTableRecord.ModelSpace], OpenMode.ForWrite);
+                    using (BlockReference br = new BlockReference(basePoint, newBlockId))
+                    {
+                        msBtr.AppendEntity(br);
+                        tr.AddNewlyCreatedDBObject(br, true);
+
+                        // Add AttributeReferences by iterating through BTR's AttributeDefinitions
+                        BlockTableRecord blockDef = (BlockTableRecord)tr.GetObject(newBlockId, OpenMode.ForRead);
+                        foreach (ObjectId attDefId in blockDef)
+                        {
+                            DBObject obj = tr.GetObject(attDefId, OpenMode.ForRead);
+                            if (obj is AttributeDefinition)
+                            {
+                                AttributeDefinition ad = (AttributeDefinition)obj;
+                                using (AttributeReference ar = new AttributeReference())
+                                {
+                                    ar.SetAttributeFromBlock(ad, br.BlockTransform);
+                                    ar.TextString = ad.TextString; // Set value from definition's default
+                                    // Adjust position if necessary, though SetAttributeFromBlock handles it
+                                    br.AttributeCollection.AppendAttribute(ar);
+                                    tr.AddNewlyCreatedDBObject(ar, true);
+                                }
+                            }
+                        }
+                    }
+
+                    // Delete Original Entities
+                    foreach (ObjectId objId in selectedObjectIds)
+                    {
+                        Entity ent = (Entity)tr.GetObject(objId, OpenMode.ForWrite);
+                        ent.Erase();
+                    }
+                    
+                    tr.Commit();
+                    ed.WriteMessage($"\nComponent '{proposedBlockName}' defined successfully.\n");
+                }
+                catch (System.Exception exInner)
+                {
+                    ed.WriteMessage($"\nError during block definition or entity replacement: {exInner.Message}\nStackTrace: {exInner.StackTrace}\n");
+                    tr.Abort();
+                    outAttributes = outAttributes ?? new Dictionary<string, string>(); // Ensure not null
+                    return ObjectId.Null;
+                }
+            }
+            return newBlockId;
+        }
+        catch (System.Exception exOuter)
+        {
+            string errorMessage = $"\nAn unexpected error occurred in DefineComponent for '{componentType}': {exOuter.Message}\nStackTrace: {exOuter.StackTrace}\n";
+            if (Application.DocumentManager.MdiActiveDocument != null && Application.DocumentManager.MdiActiveDocument.Editor != null)
+            {
+               Application.DocumentManager.MdiActiveDocument.Editor.WriteMessage(errorMessage);
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine(errorMessage);
+            }
+            outAttributes = outAttributes ?? new Dictionary<string, string>(); // Ensure not null
+            return ObjectId.Null;
+        }
+    }
+}
