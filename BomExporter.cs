@@ -8,39 +8,14 @@ using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Geometry; // For Extents3d
+using Autodesk.AutoCAD.Runtime; // Added for CommandMethod
 
 // Assuming RailDesigner1 namespace for consistency
+// ComponentType enum is now expected to be in RailDesigner1 namespace from Utils/CommonDefinitions.cs
 namespace RailDesigner1
 {
-    // If ComponentType is defined in a shared file like Definitions.cs, this can be removed.
-    // For this subtask, defining it here to ensure it's available.
-    public enum ComponentType
-    {
-        Post,
-        Picket,
-        TopRail,
-        BottomRail,
-        IntermediateRail,
-        HandRail,
-        Mounting,
-        UserDefined, 
-        // Add other specific types if necessary
-    }
-
-    // If DictionaryExtensions is defined in a shared utility file, this can be removed.
-    public static class DictionaryExtensions
-    {
-        public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)
-        {
-            return dictionary.TryGetValue(key, out TValue value) ? value : defaultValue;
-        }
-        
-        // Overload for string specifically if needed, or rely on the generic one.
-        public static string GetValueOrDefault(this IDictionary<string, string> dictionary, string key, string defaultValue)
-        {
-             return dictionary.TryGetValue(key, out string value) ? value : defaultValue;
-        }
-    }
+    // Removed local ComponentType enum definition.
+    // Removed local DictionaryExtensions class definition. It's now in Utils/CommonDefinitions.cs
 
     public class BomEntry
     {

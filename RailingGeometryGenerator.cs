@@ -10,32 +10,12 @@ using AcApp = Autodesk.AutoCAD.ApplicationServices.Application;
 using RailDesigner1.Utils; // For SappoUtilities
 using RailDesigner1.Placement; // For PostPlacementLogicWrapper and PlacementInfo
 using RailDesigner1.Wrappers; // For RailCreatorPicketPlacementWrapper
+// ComponentType enum is now expected to be in RailDesigner1 namespace from Utils/CommonDefinitions.cs
 
 namespace RailDesigner1
 {
-    // Define ComponentType enum here if not globally available or for focused testing
-    // This should ideally be in a shared Definitions.cs or similar
-    public enum ComponentType
-    {
-        Post,
-        Picket,
-        TopRail,
-        BottomRail,
-        IntermediateRail,
-        HandRail,
-        Mounting,
-        UserDefined, // Fallback or for types not explicitly listed
-        // Ensure all types used in GetOrCreateLayerForComponent are here
-    }
-
-    public static class DictionaryExtensions
-    {
-        public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)
-        {
-            return dictionary.TryGetValue(key, out TValue value) ? value : defaultValue;
-        }
-    }
-
+    // Removed local ComponentType enum definition.
+    // Removed local DictionaryExtensions class definition. It's now in Utils/CommonDefinitions.cs
 
     public class RailingGeometryGenerator
     {
