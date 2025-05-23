@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms; // REQUIRES PROJECT REFERENCE TO System.Windows.Forms.dll
 using System.Drawing; // Added: REQUIRES PROJECT REFERENCE TO System.Drawing.dll
+using RailDesigner1; // Added to access ComponentType from RailDesigner1 namespace
 
 // Explicitly reference AutoCAD Application to avoid ambiguity with System.Windows.Forms.Application
 using AcadApplication = Autodesk.AutoCAD.ApplicationServices.Application;
