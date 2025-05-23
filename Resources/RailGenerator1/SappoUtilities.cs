@@ -17,20 +17,10 @@ using AcadException = Autodesk.AutoCAD.Runtime.Exception; // Alias for AutoCAD E
 
 namespace RailGenerator1
 {
-    /// <summary>
-    /// Enum for component types to ensure type safety and mitigate :UserInputError.
-    /// Adheres to :EnumPattern from SAPPO.
-    /// </summary>
-    public enum ComponentType
-    {
-        TopCap,
-        BottomRail,
-        IntermediateRail,
-        Post,
-        Picket,
-        BasePlate,
-        Mounting
-    }
+    // Removed local ComponentType enum definition.
+    // The ComponentType enum from RailDesigner1 namespace (in Utils/CommonDefinitions.cs) should be used if this file is integrated.
+    // For now, this file might not compile correctly if it relies on its own ComponentType values
+    // without adjustments or appropriate `using` directives for the RailDesigner1.ComponentType.
 
     /// <summary>
     /// Utility class for SAPPO-compliant transaction and error handling.

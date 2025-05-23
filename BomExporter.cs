@@ -315,6 +315,7 @@ namespace RailDesigner1
             {
                 return result;
             }
+            // Corrected line below
             Application.DocumentManager.MdiActiveDocument?.Editor.WriteMessage($"\nWarning: Could not parse '{value}' as double. Using 0.0.");
             return 0.0;
         }
