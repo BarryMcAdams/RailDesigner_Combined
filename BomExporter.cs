@@ -9,6 +9,7 @@ using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Geometry; // For Extents3d
 using Autodesk.AutoCAD.Runtime; // Added for CommandMethod
+using AcadApplication = Autodesk.AutoCAD.ApplicationServices.Application; // Added alias
 
 // Assuming RailDesigner1 namespace for consistency
 // ComponentType enum is now expected to be in RailDesigner1 namespace from Utils/CommonDefinitions.cs
@@ -56,10 +57,10 @@ namespace RailDesigner1
         [CommandMethod("EXPORT_BOM")]
         public void ExportBom()
         {
-            Document doc = Application.DocumentManager.MdiActiveDocument;
+            Document doc = AcadApplication.DocumentManager.MdiActiveDocument; 
             if (doc == null)
             {
-                Application.ShowAlertDialog("No active document. Please open a drawing to export BOM.");
+                AcadApplication.ShowAlertDialog("No active document. Please open a drawing to export BOM."); 
                 return;
             }
             Database db = doc.Database;
@@ -144,8 +145,6 @@ namespace RailDesigner1
             if (aggregatedBom.TryGetValue(entryDetails.Key, out BomEntry existingEntry))
             {
                 existingEntry.Quantity += 1;
-                // For blocks, InstalledLength might represent the height of one item, or sum of lengths if they are cut from stock.
-                // Current interpretation: sum of individual item heights/lengths.
                 if (itemHeight > 0) existingEntry.InstalledLength += itemHeight; 
                 existingEntry.Weight += weightDensity * itemHeight; 
             }
@@ -176,8 +175,8 @@ namespace RailDesigner1
             string finish = GetXDataValue(pl, RegAppName, "FINISH") ?? "DefaultFinish";
             string description = GetXDataValue(pl, RegAppName, "DESCRIPTION") ?? $"Rail segment: {profileName}";
             string specialNotes = GetXDataValue(pl, RegAppName, "SPECIAL_NOTES") ?? "";
-            string ua1 = GetXDataValue(pl, RegAppName, "USER_ATTRIBUTE_1") ?? "";
-            string ua2 = GetXDataValue(pl, RegAppName, "USER_ATTRIBUTE_2") ?? "";
+            string ua1 = GetXDataValue(pl, RegAppName, "USER_ATTRIBUTE_1") ?? ""; // Corrected to use GetXDataValue
+            string ua2 = GetXDataValue(pl, RegAppName, "USER_ATTRIBUTE_2") ?? ""; // Corrected to use GetXDataValue
             
             double weightDensity = ParseDouble(GetXDataValue(pl, RegAppName, "WEIGHT_DENSITY"));
             double currentSegmentLength = pl.Length;
@@ -188,7 +187,6 @@ namespace RailDesigner1
             {
                 existingEntry.InstalledLength += currentSegmentLength;
                 existingEntry.Weight += weightDensity * currentSegmentLength; 
-                // Quantity for aggregated rail profiles remains 1
             }
             else
             {
@@ -215,11 +213,11 @@ namespace RailDesigner1
 
         private string GetXDataValue(Entity ent, string regAppName, string key)
         {
-            ResultBuffer rb = ent.GetXData(regAppName);
+            ResultBuffer rb = ent.GetXDataForApplication(regAppName); // CORRECTED LINE
             if (rb == null) return null;
 
             var values = rb.AsArray();
-            for (int i = 1; i < values.Length; i++) 
+            for (int i = 1; i < values.Length; i++) // Start from 1, as 0 is RegAppName
             {
                 if (values[i].TypeCode == (short)DxfCode.ExtendedDataAsciiString)
                 {
@@ -269,9 +267,8 @@ namespace RailDesigner1
                 InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) 
             };
             
-            DialogResult dialogResult = DialogResult.Cancel; // Default to cancel
-            // Ensure STA thread for SaveFileDialog
-            Application.Invoke(new Action(() => dialogResult = sfd.ShowDialog()));
+            DialogResult dialogResult = DialogResult.Cancel; 
+            AcadApplication.Invoke(new Action(() => dialogResult = sfd.ShowDialog())); 
 
 
             if (dialogResult == DialogResult.OK)
@@ -285,7 +282,7 @@ namespace RailDesigner1
                 {
                     string errorMsg = $"Error saving BOM file: {ex.Message}";
                     ed.WriteMessage($"\n{errorMsg}");
-                    Application.ShowAlertDialog(errorMsg);
+                    AcadApplication.ShowAlertDialog(errorMsg); 
                 }
             }
             else
@@ -297,8 +294,10 @@ namespace RailDesigner1
         private string EscapeCsvField(string field)
         {
             if (string.IsNullOrEmpty(field)) return "";
-            if (field.Contains("\"") || field.Contains(",") || field.Contains("\n") || field.Contains("\r"))
+            // Field needs escaping if it contains a comma, a quote, or newline characters
+            if (field.IndexOfAny(new char[] { ',', '"', '\n', '\r' }) != -1)
             {
+                 // Enclose in quotes and double up existing quotes
                 return "\"" + field.Replace("\"", "\"\"") + "\"";
             }
             return field; 
@@ -315,8 +314,7 @@ namespace RailDesigner1
             {
                 return result;
             }
-            // Corrected line below
-            Application.DocumentManager.MdiActiveDocument?.Editor.WriteMessage($"\nWarning: Could not parse '{value}' as double. Using 0.0.");
+            AcadApplication.DocumentManager.MdiActiveDocument?.Editor.WriteMessage($"\nWarning: Could not parse '{value}' as double. Using 0.0.");
             return 0.0;
         }
     }

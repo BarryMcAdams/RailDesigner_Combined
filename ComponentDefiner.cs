@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Autodesk.AutoCAD.ApplicationServices;
+using AcadApplication = Autodesk.AutoCAD.ApplicationServices.Application; // Added alias
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Geometry;
@@ -12,7 +13,7 @@ public class ComponentDefiner
     public ObjectId DefineComponent(string componentType, out Dictionary<string, string> outAttributes)
     {
         outAttributes = null;
-        Document doc = Application.DocumentManager.MdiActiveDocument;
+        Document doc = AcadApplication.DocumentManager.MdiActiveDocument; // Changed
         if (doc == null)
         {
             System.Diagnostics.Debug.WriteLine("DefineComponent called without an active document.");
@@ -253,9 +254,9 @@ public class ComponentDefiner
         catch (System.Exception exOuter)
         {
             string errorMessage = $"\nAn unexpected error occurred in DefineComponent for '{componentType}': {exOuter.Message}\nStackTrace: {exOuter.StackTrace}\n";
-            if (Application.DocumentManager.MdiActiveDocument != null && Application.DocumentManager.MdiActiveDocument.Editor != null)
+            if (AcadApplication.DocumentManager.MdiActiveDocument != null && AcadApplication.DocumentManager.MdiActiveDocument.Editor != null) // Changed
             {
-               Application.DocumentManager.MdiActiveDocument.Editor.WriteMessage(errorMessage);
+               AcadApplication.DocumentManager.MdiActiveDocument.Editor.WriteMessage(errorMessage); // Changed
             }
             else
             {

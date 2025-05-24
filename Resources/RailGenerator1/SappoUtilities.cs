@@ -183,7 +183,8 @@ namespace RailGenerator1
                 {
                     GeneratePostsAlongCurve(pathCurve, count, ed); // Removed unused Action parameter
                 }
-                else if (componentType == ComponentType.TopCap || componentType == ComponentType.BottomRail || componentType == ComponentType.IntermediateRail)
+                // Corrected: ComponentType.TopCap changed to ComponentType.TopRail
+                else if (componentType == ComponentType.TopRail || componentType == ComponentType.BottomRail || componentType == ComponentType.IntermediateRail)
                 {
                     // For horizontal rails, we might just draw a polyline along the path
                     // Or extrude a profile block along the path (more complex)
@@ -579,13 +580,18 @@ namespace RailGenerator1
             var values = Enum.GetNames(typeof(ComponentType));
             string keywordString = string.Join("/", values);
             PromptKeywordOptions options = new PromptKeywordOptions($"\nSelect component type [{keywordString}]: ");
-            options.Keywords.Add("TopCap");
+            // Corrected: "TopCap" to "TopRail", removed "BasePlate"
+            // Consider adding HandRail, UserDefined if they should be selectable here.
+            options.Keywords.Add("TopRail"); 
             options.Keywords.Add("BottomRail");
             options.Keywords.Add("IntermediateRail");
             options.Keywords.Add("Post");
             options.Keywords.Add("Picket");
-            options.Keywords.Add("BasePlate");
+            // options.Keywords.Add("BasePlate"); // Removed
             options.Keywords.Add("Mounting");
+            // To make it comprehensive with RailDesigner1.ComponentType, you might add:
+            // options.Keywords.Add("HandRail");
+            // options.Keywords.Add("UserDefined");
             options.AllowNone = false;
 
             PromptResult result = ed.GetKeywords(options);
